@@ -13,9 +13,12 @@
         <div v-else>
             <h1>Caricamento completato!</h1>
         </div>
-        <div v-for="mail in emailList">
-            {{mail}}
+        <div v-if="canLoad===true">
+            <div v-for="(mail,index) in emailList">
+                {{mail}}
+            </div>
         </div>
+        
     </div>
     
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
