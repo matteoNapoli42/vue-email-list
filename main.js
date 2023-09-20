@@ -6,18 +6,19 @@ createApp({
       }
     },
     mounted(){
-        let i = 0;
         let arr=[];
+        let i = 0;
         while(i<10)
         {
-            
             i++;
-            axios.get(' https://flynn.boolean.careers/exercises/api/random/mail')
-            .then(response =>{
-                     this.emailList.push(response.data.response);
-                }
-            )
+            arr.push(axios.get(' https://flynn.boolean.careers/exercises/api/random/mail'))
         }
+        Promise.all(arr).then(response=>{
+            console.log(response);
+            for(let i=0;i<response.length-1;i++)
+                this.emailList.push(response[i].data.response);
+            console.log(this.emailList);
+        })
     },
     }
   ).mount('#app')
