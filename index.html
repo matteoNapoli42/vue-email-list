@@ -7,6 +7,12 @@
 </head>
 <body>
     <div id="app">
+        <div v-if="endLoading === false">
+            <h1>Caricamento delle mail in corso, attendere...</h1>
+        </div>
+        <div v-else>
+            <h1>Caricamento completato!</h1>
+        </div>
         <div v-for="mail in emailList">
             {{mail}}
         </div>

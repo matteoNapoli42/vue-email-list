@@ -3,6 +3,7 @@ createApp({
     data() {
       return {
         emailList : [],
+        endLoading : false,
       }
     },
     mounted(){
@@ -21,6 +22,7 @@ createApp({
                 this.emailList.push(mail.data.response)
             })
             console.log(this.emailList);
+            this.endLoading=true;
         })
     },
     }
